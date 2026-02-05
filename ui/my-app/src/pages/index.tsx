@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 
+import RNPreview from "@/components/RNPreview";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -125,6 +127,25 @@ export default function Home() {
                 <p className="text-2xl font-semibold">Calm</p>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="grid gap-8 rounded-3xl border border-[#e0d5cc] bg-white/80 p-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#7a6f66]">
+              React Native Web
+            </p>
+            <h2 className="text-3xl font-semibold">
+              Use shared primitives without losing the web experience.
+            </h2>
+            <p className="text-sm leading-6 text-[#6d5f57]">
+              The app now aliases react-native to react-native-web and collects
+              native styles during SSR, so you can build components once and ship
+              across platforms.
+            </p>
+          </div>
+          <div className="self-center">
+            <RNPreview />
           </div>
         </section>
 
