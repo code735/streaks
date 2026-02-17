@@ -67,10 +67,7 @@ export default function Todo() {
 
       <main className="flex w-full flex-col gap-6 px-6 pb-14 pt-8">
         {dailyTodos.map((day) => (
-          <section
-            key={day.date}
-            className="space-y-3 rounded-2xl bg-[var(--app-card)] p-5 shadow-sm"
-          >
+          <section key={day.date} className="space-y-3">
             <h2 className="text-lg font-semibold">{day.date}</h2>
             <ul className="space-y-4">
               {day.todos.map((todo) => (
