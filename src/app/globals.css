@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --app-bg: #f7f7f5;
+  --app-bg: #ffffff;
   --app-fg: #1f1b16;
   --app-muted: #6f655c;
   --app-card: #ffffff;
+  --app-glass: rgba(255, 255, 255, 0.22);
   --app-dot: rgba(31, 27, 22, 0.18);
 }
 
@@ -13,7 +14,20 @@
   --app-fg: #f4f1ec;
   --app-muted: #c6bdb4;
   --app-card: #1c1b18;
+  --app-glass: rgba(17, 17, 15, 0.22);
   --app-dot: rgba(255, 255, 255, 0.18);
+}
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
 }
 
 @theme inline {
