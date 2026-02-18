@@ -20,6 +20,7 @@ Use this as a standing directive for all UI work in this repo.
 - Selection row: amber highlight with dark text.
 - Labels: uppercase, tracking, small size.
 - Cards/panels: subtle borders, glassy but restrained.
+- No rounded corners anywhere.
 
 ## Motion + interaction
 - Minimal, purposeful transitions (hover lift, subtle fade/blur).

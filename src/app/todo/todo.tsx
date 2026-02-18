@@ -76,7 +76,7 @@ export default function Todo() {
             </h1>
           </div>
           <Link
-            className="rounded-full border border-[color:var(--app-border)] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--app-muted)] transition hover:text-[var(--app-fg)]"
+            className="border border-[color:var(--app-border)] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--app-muted)] transition hover:text-[var(--app-fg)]"
             href="/progress"
           >
             View months
@@ -88,9 +88,9 @@ export default function Todo() {
           <section
             key={day.date}
             data-date={day.date}
-            className="space-y-4 rounded-2xl border border-[color:var(--app-border)] bg-[color:var(--app-glass)] p-5 shadow-[0_18px_60px_rgba(0,0,0,0.35)]"
+            className="space-y-4 border border-[color:var(--app-border)] bg-[color:var(--app-glass)] p-5 shadow-[0_18px_60px_rgba(0,0,0,0.35)]"
           >
-            <h2 className="sticky top-0 z-10 -mx-5 rounded-t-2xl bg-[color:var(--app-glass)] px-5 py-2 text-lg font-semibold backdrop-blur-xl">
+            <h2 className="sticky top-0 z-10 -mx-5 bg-[color:var(--app-glass)] px-5 py-2 text-lg font-semibold backdrop-blur-xl">
               {day.date}
             </h2>
             <ul className="space-y-6">
@@ -103,18 +103,18 @@ export default function Todo() {
                   <li
                     key={todo.id}
                     id={todoAnchor}
-                    className="space-y-2 rounded-[10px] border border-[color:var(--app-border)] bg-[color:var(--app-panel)]/70 p-3 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]"
+                    className="space-y-2 border border-[color:var(--app-border)] bg-[color:var(--app-panel)]/70 p-3 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]"
                   >
                     <div className="flex flex-wrap items-center gap-3 text-sm">
                       <span className="font-medium text-[var(--app-fg)]">
                         {todo.title}
                       </span>
-                      <span className="rounded-full border border-[color:var(--app-dot)] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--app-muted)]">
+                      <span className="border border-[color:var(--app-dot)] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--app-muted)]">
                         {todo.tag}
                       </span>
                       {todo.subtasks && todo.subtasks.length > 0 ? (
                         <button
-                          className={`inline-flex items-center gap-2 rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] transition-all duration-300 ease-out ${
+                          className={`inline-flex items-center gap-2 border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] transition-all duration-300 ease-out ${
                             isOpen
                               ? "border-[color:var(--app-fg)] text-[var(--app-fg)]"
                               : "border-dashed border-[color:var(--app-dot)] text-[var(--app-muted)]"
@@ -124,7 +124,7 @@ export default function Todo() {
                           aria-expanded={openItems.has(todo.id)}
                         >
                           <motion.span
-                            className={`h-1.5 w-1.5 rounded-full bg-[color:var(--app-dot)] ${
+                            className={`h-1.5 w-1.5 bg-[color:var(--app-dot)] ${
                               isOpen ? "" : "opacity-70"
                             }`}
                             animate={
@@ -175,7 +175,7 @@ export default function Todo() {
                                 <motion.li
                                   key={subtask}
                                   variants={itemVariants}
-                                  className="relative pl-6 before:absolute before:left-2 before:top-[0.55rem] before:h-3 before:w-3 before:content-[''] before:border-l before:border-b before:border-dashed before:border-[color:var(--app-dot)] before:rounded-bl-xl after:absolute after:left-[0.95rem] after:top-[0.4rem] after:h-2 after:w-2 after:content-[''] after:rounded-full after:bg-[color:var(--app-dot)]"
+                                  className="relative pl-6 before:absolute before:left-2 before:top-[0.55rem] before:h-3 before:w-3 before:content-[''] before:border-l before:border-b before:border-dashed before:border-[color:var(--app-dot)] after:absolute after:left-[0.95rem] after:top-[0.4rem] after:h-2 after:w-2 after:content-[''] after:bg-[color:var(--app-dot)]"
                                 >
                                   {subtask}
                                 </motion.li>

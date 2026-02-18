@@ -18,12 +18,12 @@ export default function Progress() {
             portal into the daily log.
           </p>
         </div>
-        <div className="rounded-full border border-[color:var(--app-border)] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--app-muted)]">
+        <div className="border border-[color:var(--app-border)] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--app-muted)]">
           {defaultYear}
         </div>
       </header>
 
-      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {monthMeta.map((month) => {
           const monthValue = String(month.number).padStart(2, "0");
 
@@ -31,7 +31,7 @@ export default function Progress() {
             <Link
               key={month.number}
               href={`/todo?month=${monthValue}&year=${defaultYear}`}
-              className="group relative flex aspect-square flex-col justify-between rounded-2xl border border-[color:var(--app-border)] bg-[color:var(--app-panel)]/80 p-5 transition duration-300 hover:-translate-y-1 hover:border-[color:var(--app-accent)] hover:shadow-[0_22px_60px_rgba(0,0,0,0.45)]"
+              className="group relative flex h-40 flex-col justify-between border border-[color:var(--app-border)] bg-[color:var(--app-panel)]/80 p-5 transition duration-300 hover:-translate-y-1 hover:border-[color:var(--app-accent)] hover:shadow-[0_22px_60px_rgba(0,0,0,0.45)]"
             >
               <div className="space-y-3">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-[var(--app-muted)]">
@@ -45,7 +45,7 @@ export default function Progress() {
                 <span className="uppercase tracking-[0.3em]">Open ledger</span>
                 <span className="text-[var(--app-accent)]">→</span>
               </div>
-              <div className="absolute right-5 top-5 h-2.5 w-2.5 rounded-full bg-[var(--app-emerald)]/60 shadow-[0_0_12px_rgba(139,199,178,0.6)] transition group-hover:scale-110" />
+              <div className="absolute right-5 top-5 h-2.5 w-2.5 bg-[var(--app-emerald)]/60 shadow-[0_0_12px_rgba(139,199,178,0.6)] transition group-hover:scale-110" />
             </Link>
           );
         })}

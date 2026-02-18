@@ -18,7 +18,7 @@ export default function Home() {
       <section className="grid gap-4 lg:grid-cols-2">
         <a
           href="/todo"
-          className="group flex flex-col justify-between rounded-2xl border border-[color:var(--app-border)] bg-[color:var(--app-panel)]/80 p-6 transition duration-300 hover:-translate-y-1 hover:border-[color:var(--app-accent)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
+          className="group flex flex-col justify-between border border-[color:var(--app-border)] bg-[color:var(--app-panel)]/80 p-6 transition duration-300 hover:-translate-y-1 hover:border-[color:var(--app-accent)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
         >
           <div className="space-y-2">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-[var(--app-muted)]">
@@ -36,7 +36,7 @@ export default function Home() {
 
         <a
           href="/progress"
-          className="group flex flex-col justify-between rounded-2xl border border-[color:var(--app-border)] bg-[color:var(--app-panel)]/80 p-6 transition duration-300 hover:-translate-y-1 hover:border-[color:var(--app-emerald)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
+          className="group flex flex-col justify-between border border-[color:var(--app-border)] bg-[color:var(--app-panel)]/80 p-6 transition duration-300 hover:-translate-y-1 hover:border-[color:var(--app-emerald)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
         >
           <div className="space-y-2">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-[var(--app-muted)]">
@@ -53,7 +53,7 @@ export default function Home() {
         </a>
       </section>
 
-      <section className="mt-12 rounded-2xl border border-[color:var(--app-border)] bg-[color:var(--app-panel)]/80 p-6">
+      <section className="mt-12 border border-[color:var(--app-border)] bg-[color:var(--app-panel)]/80 p-6">
         <div className="text-[11px] font-semibold uppercase tracking-[0.4em] text-[var(--app-muted)]">
           Quick actions
         </div>

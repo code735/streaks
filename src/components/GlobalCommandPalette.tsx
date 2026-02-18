@@ -209,31 +209,35 @@ export default function GlobalCommandPalette() {
 
   return (
     <>
-      <div className="pointer-events-none fixed bottom-6 right-6 z-40 hidden w-64 flex-col gap-2 rounded-2xl border border-[color:var(--app-border)] bg-[color:var(--app-panel)]/80 p-4 text-[11px] uppercase tracking-[0.24em] text-[var(--app-muted)] shadow-[0_18px_40px_rgba(0,0,0,0.45)] sm:flex">
-        <div className="text-[10px] font-semibold text-[var(--app-fg)]">
-          Shortcuts
-        </div>
-        <div className="flex items-center justify-between gap-3">
-          <span>Search todos</span>
-          <span className="flex items-center gap-2">
-            <kbd>Alt</kbd>
-            <kbd>Super</kbd>
-            <kbd>F</kbd>
-          </span>
-        </div>
-        <div className="flex items-center justify-between gap-3">
-          <span>Project switcher</span>
-          <span className="flex items-center gap-2">
-            <kbd>Alt</kbd>
-            <kbd>Super</kbd>
-            <kbd>P</kbd>
-          </span>
-        </div>
-        <div className="flex items-center justify-between gap-3">
-          <span>Close overlay</span>
-          <span>
-            <kbd>Esc</kbd>
-          </span>
+      <div className="pointer-events-none fixed bottom-0 left-0 right-0 z-40 hidden border-t border-[color:var(--app-border)] bg-[color:var(--app-panel)]/90 px-6 py-3 text-[11px] uppercase tracking-[0.24em] text-[var(--app-muted)] shadow-[0_-12px_30px_rgba(0,0,0,0.45)] sm:flex">
+        <div className="mx-auto flex w-full max-w-6xl items-center gap-6">
+          <div className="text-[10px] font-semibold text-[var(--app-fg)]">
+            Shortcuts
+          </div>
+          <div className="ml-auto flex flex-wrap items-center gap-6">
+            <div className="flex items-center gap-3">
+              <span>Search</span>
+              <span className="flex items-center gap-2">
+                <kbd>Alt</kbd>
+                <kbd>Super</kbd>
+                <kbd>F</kbd>
+              </span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span>Projects</span>
+              <span className="flex items-center gap-2">
+                <kbd>Alt</kbd>
+                <kbd>Super</kbd>
+                <kbd>P</kbd>
+              </span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span>Close</span>
+              <span>
+                <kbd>Esc</kbd>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -243,7 +247,7 @@ export default function GlobalCommandPalette() {
           onClick={() => setMode(null)}
         >
           <div
-            className="w-full max-w-2xl rounded-2xl border border-[color:var(--app-border)] bg-[color:var(--app-panel)]/95 shadow-[0_24px_80px_rgba(0,0,0,0.55)]"
+            className="w-full max-w-2xl border border-[color:var(--app-border)] bg-[color:var(--app-panel)]/95 shadow-[0_24px_80px_rgba(0,0,0,0.55)]"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-center justify-between px-6 pt-5 text-[11px] font-semibold uppercase tracking-[0.4em] text-[var(--app-muted)]">
@@ -276,7 +280,7 @@ export default function GlobalCommandPalette() {
                               key={item.id}
                               type="button"
                               onClick={() => handleSelect(item.href)}
-                              className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition ${
+                              className={`flex w-full items-center justify-between px-3 py-2 text-left text-sm transition ${
                                 isActive
                                   ? "bg-[var(--app-accent)] text-[#1b130c]"
                                   : "text-[var(--app-fg)] hover:bg-white/5"
@@ -318,7 +322,7 @@ export default function GlobalCommandPalette() {
                           key={item.id}
                           type="button"
                           onClick={() => handleSelect(item.href)}
-                          className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition ${
+                          className={`flex w-full items-center justify-between px-3 py-2 text-left text-sm transition ${
                             isActive
                               ? "bg-[var(--app-accent)] text-[#1b130c]"
                               : "text-[var(--app-fg)] hover:bg-white/5"
