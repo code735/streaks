@@ -1,21 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --app-bg: #ffffff;
-  --app-fg: #1f1b16;
-  --app-muted: #6f655c;
-  --app-card: #ffffff;
-  --app-glass: rgba(255, 255, 255, 0.22);
-  --app-dot: rgba(31, 27, 22, 0.18);
-}
-
-[data-theme="dark"] {
-  --app-bg: #11110f;
-  --app-fg: #f4f1ec;
-  --app-muted: #c6bdb4;
-  --app-card: #1c1b18;
-  --app-glass: rgba(17, 17, 15, 0.22);
-  --app-dot: rgba(255, 255, 255, 0.18);
+  --app-bg: #0c0c0b;
+  --app-fg: #ebe6df;
+  --app-muted: #a49a90;
+  --app-card: #141412;
+  --app-panel: rgba(20, 20, 18, 0.9);
+  --app-glass: rgba(16, 16, 14, 0.6);
+  --app-dot: rgba(235, 230, 223, 0.08);
+  --app-border: rgba(235, 230, 223, 0.12);
+  --app-accent: #f0b079;
+  --app-accent-soft: rgba(240, 176, 121, 0.18);
+  --app-emerald: #8bc7b2;
 }
 
 @keyframes pulseDot {
@@ -39,9 +35,39 @@
 
 body {
   background-color: var(--app-bg);
-  background-image: radial-gradient(var(--app-dot) 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-image:
+    radial-gradient(900px 540px at 8% -10%, rgba(240, 176, 121, 0.12), transparent 60%),
+    radial-gradient(820px 520px at 88% 12%, rgba(139, 199, 178, 0.1), transparent 62%),
+    radial-gradient(var(--app-dot) 1px, transparent 1px),
+    linear-gradient(180deg, #0c0c0b 0%, #0b0b09 100%);
+  background-size: auto, auto, 22px 22px, auto;
   background-attachment: fixed;
   color: var(--app-fg);
-  font-family: var(--font-geist-sans), sans-serif;
+  font-family: var(--font-geist-mono), "IBM Plex Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(240, 176, 121, 0.3);
+  color: var(--app-fg);
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--app-accent-soft);
+  text-underline-offset: 4px;
+}
+
+kbd {
+  border: 1px solid var(--app-border);
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--app-muted);
+  background: rgba(15, 15, 13, 0.8);
 }
