@@ -31,7 +31,8 @@ Use this as a standing directive for all UI work in this repo.
 - Avoid large hero blocks; keep content compact and purposeful.
 
 ## Shortcuts
-- Keep shortcut hints visible bottom-right.
+- Keep shortcut hints visible in a sticky bottom bar.
+- Use a low-key, lowercase, compact font style similar to terminal status bars.
 - Use kbd styling for key hints.
 
 ## Do nots

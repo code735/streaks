@@ -209,32 +209,35 @@ export default function GlobalCommandPalette() {
 
   return (
     <>
-      <div className="pointer-events-none fixed bottom-0 left-0 right-0 z-40 hidden border-t border-[color:var(--app-border)] bg-[color:var(--app-panel)]/90 px-6 py-3 text-[11px] uppercase tracking-[0.24em] text-[var(--app-muted)] shadow-[0_-12px_30px_rgba(0,0,0,0.45)] sm:flex">
-        <div className="mx-auto flex w-full max-w-6xl items-center gap-6">
-          <div className="text-[10px] font-semibold text-[var(--app-fg)]">
-            Shortcuts
-          </div>
-          <div className="ml-auto flex flex-wrap items-center gap-6">
+      <div className="pointer-events-none fixed bottom-0 left-0 right-0 z-40 hidden border-t border-[color:var(--app-border)] bg-[color:var(--app-panel)]/90 px-6 py-3 text-[13px] font-medium lowercase tracking-[0.14em] text-[color:rgba(235,230,223,0.72)] shadow-[0_-12px_30px_rgba(0,0,0,0.45)] sm:flex">
+        <div className="flex w-full items-center justify-end">
+          <div className="flex flex-wrap items-center gap-6">
             <div className="flex items-center gap-3">
-              <span>Search</span>
+              <span className="font-semibold text-[color:var(--app-muted)]">
+                search
+              </span>
               <span className="flex items-center gap-2">
-                <kbd>Alt</kbd>
-                <kbd>Super</kbd>
-                <kbd>F</kbd>
+                <kbd className="font-semibold text-[var(--app-fg)]">Alt</kbd>
+                <kbd className="font-semibold text-[var(--app-fg)]">Super</kbd>
+                <kbd className="font-semibold text-[var(--app-fg)]">F</kbd>
               </span>
             </div>
             <div className="flex items-center gap-3">
-              <span>Projects</span>
+              <span className="font-semibold text-[color:var(--app-muted)]">
+                projects
+              </span>
               <span className="flex items-center gap-2">
-                <kbd>Alt</kbd>
-                <kbd>Super</kbd>
-                <kbd>P</kbd>
+                <kbd className="font-semibold text-[var(--app-fg)]">Alt</kbd>
+                <kbd className="font-semibold text-[var(--app-fg)]">Super</kbd>
+                <kbd className="font-semibold text-[var(--app-fg)]">P</kbd>
               </span>
             </div>
             <div className="flex items-center gap-3">
-              <span>Close</span>
+              <span className="font-semibold text-[color:var(--app-muted)]">
+                close
+              </span>
               <span>
-                <kbd>Esc</kbd>
+                <kbd className="font-semibold text-[var(--app-fg)]">Esc</kbd>
               </span>
             </div>
           </div>
