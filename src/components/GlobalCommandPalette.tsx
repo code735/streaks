@@ -217,9 +217,30 @@ export default function GlobalCommandPalette() {
                 search
               </span>
               <span className="flex items-center gap-2">
-                <kbd className="font-semibold text-[var(--app-fg)]">Alt</kbd>
-                <kbd className="font-semibold text-[var(--app-fg)]">Super</kbd>
-                <kbd className="font-semibold text-[var(--app-fg)]">F</kbd>
+                <kbd
+                  className="border-0 bg-transparent p-0 font-semibold text-white"
+                  style={{ color: "#fff" }}
+                >
+                  Alt
+                </kbd>
+                <span className="font-semibold text-white" style={{ color: "#fff" }}>
+                  +
+                </span>
+                <kbd
+                  className="border-0 bg-transparent p-0 font-semibold text-white"
+                  style={{ color: "#fff" }}
+                >
+                  Super
+                </kbd>
+                <span className="font-semibold text-white" style={{ color: "#fff" }}>
+                  +
+                </span>
+                <kbd
+                  className="border-0 bg-transparent p-0 font-semibold text-white"
+                  style={{ color: "#fff" }}
+                >
+                  F
+                </kbd>
               </span>
             </div>
             <div className="flex items-center gap-3">
@@ -227,9 +248,30 @@ export default function GlobalCommandPalette() {
                 projects
               </span>
               <span className="flex items-center gap-2">
-                <kbd className="font-semibold text-[var(--app-fg)]">Alt</kbd>
-                <kbd className="font-semibold text-[var(--app-fg)]">Super</kbd>
-                <kbd className="font-semibold text-[var(--app-fg)]">P</kbd>
+                <kbd
+                  className="border-0 bg-transparent p-0 font-semibold text-white"
+                  style={{ color: "#fff" }}
+                >
+                  Alt
+                </kbd>
+                <span className="font-semibold text-white" style={{ color: "#fff" }}>
+                  +
+                </span>
+                <kbd
+                  className="border-0 bg-transparent p-0 font-semibold text-white"
+                  style={{ color: "#fff" }}
+                >
+                  Super
+                </kbd>
+                <span className="font-semibold text-white" style={{ color: "#fff" }}>
+                  +
+                </span>
+                <kbd
+                  className="border-0 bg-transparent p-0 font-semibold text-white"
+                  style={{ color: "#fff" }}
+                >
+                  P
+                </kbd>
               </span>
             </div>
             <div className="flex items-center gap-3">
@@ -237,7 +279,12 @@ export default function GlobalCommandPalette() {
                 close
               </span>
               <span>
-                <kbd className="font-semibold text-[var(--app-fg)]">Esc</kbd>
+                <kbd
+                  className="border-0 bg-transparent p-0 font-semibold text-white"
+                  style={{ color: "#fff" }}
+                >
+                  Esc
+                </kbd>
               </span>
             </div>
           </div>
@@ -250,11 +297,11 @@ export default function GlobalCommandPalette() {
           onClick={() => setMode(null)}
         >
           <div
-            className="w-full max-w-2xl border border-[color:var(--app-border)] bg-[color:var(--app-panel)]/95 shadow-[0_24px_80px_rgba(0,0,0,0.55)]"
+            className="w-full max-w-2xl bg-[color:var(--app-panel)]/95 shadow-[0_24px_80px_rgba(0,0,0,0.55)]"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-center justify-between px-6 pt-5 text-[11px] font-semibold uppercase tracking-[0.4em] text-[var(--app-muted)]">
-              <span>{panelTitle}</span>
+              <span className="text-white">{panelTitle}</span>
               <span className="text-[10px]">esc</span>
             </div>
             <div className="px-6 pt-4">
