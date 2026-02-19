@@ -77,7 +77,7 @@ export default function Todo() {
           </div>
           <Link
             className="border border-[color:var(--app-border)] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--app-muted)] transition hover:text-[var(--app-fg)]"
-            href="/progress"
+            href={`/progress?year=${yearNumber}`}
           >
             View months
           </Link>

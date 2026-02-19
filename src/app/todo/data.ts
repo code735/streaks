@@ -17,6 +17,12 @@ export type MonthMeta = {
   shortLabel: string;
 };
 
+export type YearMeta = {
+  year: number;
+  label: string;
+  shortLabel: string;
+};
+
 export const defaultYear = 2026;
 export const defaultMonth = 2;
 
@@ -34,6 +40,25 @@ export const monthMeta: MonthMeta[] = [
   { number: 11, label: "November", shortLabel: "Nov" },
   { number: 12, label: "December", shortLabel: "Dec" },
 ];
+
+const yearSpan = 12;
+const minYear = 2020;
+const maxYear = 2099;
+const centeredStart = defaultYear - 5;
+const maxStart = maxYear - yearSpan + 1;
+const yearStart = Math.min(Math.max(minYear, centeredStart), maxStart);
+
+export const yearMeta: YearMeta[] = Array.from(
+  { length: yearSpan },
+  (_, index) => {
+    const year = yearStart + index;
+    return {
+      year,
+      label: String(year),
+      shortLabel: `FY${String(year).slice(-2)}`,
+    };
+  }
+);
 
 const templates: Omit<TodoItem, "id">[] = [
   {

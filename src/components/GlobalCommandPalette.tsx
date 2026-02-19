@@ -42,6 +42,12 @@ const baseRoutes: NavItem[] = [
     href: "/progress",
     section: "Routes",
   },
+  {
+    id: "years",
+    label: "Years",
+    href: "/years",
+    section: "Routes",
+  },
 ];
 
 const normalize = (value: string) => value.toLowerCase().trim();

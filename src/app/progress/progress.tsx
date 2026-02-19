@@ -2,7 +2,17 @@ import Link from "next/link";
 
 import { defaultYear, monthMeta } from "../todo/data";
 
-export default function Progress() {
+type ProgressProps = {
+  yearParam?: string;
+};
+
+export default function Progress({ yearParam }: ProgressProps) {
+  const parsedYear = yearParam ? Number(yearParam) : defaultYear;
+  const yearNumber =
+    Number.isInteger(parsedYear) && parsedYear >= 2020 && parsedYear <= 2099
+      ? parsedYear
+      : defaultYear;
+
   return (
     <div className="min-h-screen px-6 pb-16 pt-12 text-[var(--app-fg)]">
       <header className="mb-10 flex flex-wrap items-end justify-between gap-6">
@@ -18,8 +28,16 @@ export default function Progress() {
             portal into the daily log.
           </p>
         </div>
-        <div className="border border-[color:var(--app-border)] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--app-muted)]">
-          {defaultYear}
+        <div className="flex flex-wrap items-center gap-3">
+          <Link
+            className="border border-[color:var(--app-border)] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--app-muted)] transition hover:text-[var(--app-fg)]"
+            href="/years"
+          >
+            View years
+          </Link>
+          <div className="border border-[color:var(--app-border)] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--app-muted)]">
+            {yearNumber}
+          </div>
         </div>
       </header>
 
@@ -30,7 +48,7 @@ export default function Progress() {
           return (
             <Link
               key={month.number}
-              href={`/todo?month=${monthValue}&year=${defaultYear}`}
+              href={`/todo?month=${monthValue}&year=${yearNumber}`}
               className="group relative flex h-40 flex-col justify-between border border-[color:var(--app-border)] bg-[color:var(--app-panel)]/80 p-5 transition duration-300 hover:-translate-y-1 hover:border-[color:var(--app-accent)] hover:shadow-[0_22px_60px_rgba(0,0,0,0.45)]"
             >
               <div className="space-y-3">

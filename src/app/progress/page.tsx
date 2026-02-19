@@ -1,5 +1,11 @@
 import Progress from "./progress";
 
-export default function ProgressPage() {
-  return <Progress />;
+type ProgressPageProps = {
+  searchParams?: {
+    year?: string;
+  };
+};
+
+export default function ProgressPage({ searchParams }: ProgressPageProps) {
+  return <Progress yearParam={searchParams?.year} />;
 }
