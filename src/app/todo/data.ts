@@ -42,11 +42,9 @@ export const monthMeta: MonthMeta[] = [
 ];
 
 const yearSpan = 12;
-const minYear = 2020;
 const maxYear = 2099;
-const centeredStart = defaultYear - 5;
 const maxStart = maxYear - yearSpan + 1;
-const yearStart = Math.min(Math.max(minYear, centeredStart), maxStart);
+const yearStart = Math.min(defaultYear, maxStart);
 
 export const yearMeta: YearMeta[] = Array.from(
   { length: yearSpan },
