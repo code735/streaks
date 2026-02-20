@@ -1,9 +1,17 @@
-export type TodoItem = {
-  id: string;
+type TodoBase = {
   title: string;
   tag: string;
   progress: string;
   subtasks?: string[];
+};
+
+export type AlternativeTodo = TodoBase & {
+  id: string;
+};
+
+export type TodoItem = TodoBase & {
+  id: string;
+  alternatives?: AlternativeTodo[];
 };
 
 export type DailyTodo = {
@@ -58,7 +66,7 @@ export const yearMeta: YearMeta[] = Array.from(
   }
 );
 
-const templates: Omit<TodoItem, "id">[] = [
+const templates: TodoBase[] = [
   {
     title: "Morning review",
     tag: "plan",
@@ -83,6 +91,29 @@ const templates: Omit<TodoItem, "id">[] = [
   },
 ];
 
+const alternativeTemplates: TodoBase[] = [
+  {
+    title: "Reset focus",
+    tag: "reset",
+    progress: "todo",
+  },
+  {
+    title: "Quick win pass",
+    tag: "quick-win",
+    progress: "queued",
+  },
+  {
+    title: "Backlog prune",
+    tag: "admin",
+    progress: "in progress",
+  },
+  {
+    title: "Deep review",
+    tag: "plan",
+    progress: "blocked",
+  },
+];
+
 export const buildDailyTodos = (
   monthNumber: number,
   yearNumber: number
@@ -96,9 +127,21 @@ export const buildDailyTodos = (
     const listCount = dayNumber % 2 === 0 ? 3 : 2;
     const todos = Array.from({ length: listCount }, (_, todoIndex) => {
       const template = templates[(index + todoIndex) % templates.length];
+      const altCount = 2;
+      const alternatives = Array.from({ length: altCount }, (_, altIndex) => {
+        const altTemplate =
+          alternativeTemplates[
+            (index + todoIndex + altIndex) % alternativeTemplates.length
+          ];
+        return {
+          id: `${dayLabel}-${todoIndex}-alt-${altIndex}`,
+          ...altTemplate,
+        };
+      });
       return {
         id: `${dayLabel}-${todoIndex}`,
         ...template,
+        alternatives,
       };
     });
 
