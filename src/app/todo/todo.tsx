@@ -30,6 +30,9 @@ export default function Todo() {
   const [openItems, setOpenItems] = useState<Set<string>>(
     () => new Set()
   );
+  const [openAlternatives, setOpenAlternatives] = useState<Set<string>>(
+    () => new Set()
+  );
   const searchParams = useSearchParams();
   const monthParam = searchParams?.get("month");
   const yearParam = searchParams?.get("year");
@@ -53,6 +56,18 @@ export default function Todo() {
 
   const toggleItem = (id: string) => {
     setOpenItems((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  };
+
+  const toggleAlternatives = (id: string) => {
+    setOpenAlternatives((prev) => {
       const next = new Set(prev);
       if (next.has(id)) {
         next.delete(id);
@@ -96,6 +111,7 @@ export default function Todo() {
             <ul className="space-y-6">
               {day.todos.map((todo) => {
                 const isOpen = openItems.has(todo.id);
+                const isAlternativesOpen = openAlternatives.has(todo.id);
 
                 const todoAnchor = `todo-${day.date}-${todo.id}`;
 
@@ -149,6 +165,26 @@ export default function Todo() {
                           {todo.subtasks.length} subtasks
                         </button>
                       ) : null}
+                      {todo.alternatives && todo.alternatives.length > 0 ? (
+                        <button
+                          className={`inline-flex items-center gap-2 border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] transition-all duration-300 ease-out ${
+                            isAlternativesOpen
+                              ? "border-[color:var(--app-fg)] text-[var(--app-fg)]"
+                              : "border-dashed border-[color:var(--app-dot)] text-[var(--app-muted)]"
+                          }`}
+                          onClick={() => toggleAlternatives(todo.id)}
+                          type="button"
+                          aria-expanded={isAlternativesOpen}
+                        >
+                          <span
+                            className={`h-1.5 w-1.5 bg-[color:var(--app-dot)] ${
+                              isAlternativesOpen ? "" : "opacity-70"
+                            }`}
+                            aria-hidden="true"
+                          />
+                          Replace
+                        </button>
+                      ) : null}
                       <span className="text-xs uppercase tracking-[0.2em] text-[var(--app-muted)]">
                         {todo.progress}
                       </span>
@@ -178,6 +214,49 @@ export default function Todo() {
                                   className="relative pl-6 before:absolute before:left-2 before:top-[0.55rem] before:h-3 before:w-3 before:content-[''] before:border-l before:border-b before:border-dashed before:border-[color:var(--app-dot)] after:absolute after:left-[0.95rem] after:top-[0.4rem] after:h-2 after:w-2 after:content-[''] after:bg-[color:var(--app-dot)]"
                                 >
                                   {subtask}
+                                </motion.li>
+                              ))}
+                            </motion.ul>
+                          </motion.div>
+                        ) : null}
+                      </AnimatePresence>
+                    ) : null}
+                    {todo.alternatives && todo.alternatives.length > 0 ? (
+                      <AnimatePresence initial={false}>
+                        {isAlternativesOpen ? (
+                          <motion.div
+                            key="alternatives"
+                            className="ml-2 overflow-hidden"
+                            initial={{ height: 0, opacity: 0, y: -8 }}
+                            animate={{ height: "auto", opacity: 1, y: 0 }}
+                            exit={{ height: 0, opacity: 0, y: -8 }}
+                            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                          >
+                            <div className="mb-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--app-muted)]">
+                              Alternatives
+                            </div>
+                            <motion.ul
+                              className="space-y-3"
+                              variants={listVariants}
+                              initial="closed"
+                              animate="open"
+                              exit="closed"
+                            >
+                              {todo.alternatives.map((alternative) => (
+                                <motion.li
+                                  key={alternative.id}
+                                  variants={itemVariants}
+                                  className="flex flex-wrap items-center gap-3 border border-[color:var(--app-border)] bg-[color:var(--app-panel)]/60 px-3 py-2 text-xs"
+                                >
+                                  <span className="font-medium text-[var(--app-fg)]">
+                                    {alternative.title}
+                                  </span>
+                                  <span className="border border-[color:var(--app-dot)] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--app-muted)]">
+                                    {alternative.tag}
+                                  </span>
+                                  <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--app-muted)]">
+                                    {alternative.progress}
+                                  </span>
                                 </motion.li>
                               ))}
                             </motion.ul>
